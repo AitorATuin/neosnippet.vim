@@ -22,6 +22,11 @@ function! neosnippet#helpers#get_cursor_snippet(snippets, cur_text) abort
   return cur_word
 endfunction
 
+function! neosnippet#helpers#add_snippet(name, snippet) abort
+  let neosnippet = neosnippet#variables#current_neosnippet()
+  let neosnippet.snippets[a:name] = a:snippet
+endfunction
+
 function! neosnippet#helpers#get_snippets(...) abort
   let mode = get(a:000, 0, mode())
 
